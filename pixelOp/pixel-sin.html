@@ -1,0 +1,37 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generativ - img eater</title>
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="pixel-sin.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/apps-style.css">
+
+</head>
+
+<body>
+    <div id="#input-zone" class="pattern01">
+        <label class="clabel">Select Image:</label>
+        <input id="fileUrl" class="cinput" type="text" name="fileUrl" size="70" value="monalisa.jpg">
+        <button id="openButton" class="cbutton" onclick="loadCanvas($('#fileUrl').val());">Open</button>
+        <br>
+        <label class="clabel">Formula:</label>
+        <input list="pformulas" id="formula" value="" size="100" />
+        <datalist id="pformulas">
+            <option value="Math.pow(Math.sin(oldCellData[index]),2) * oldCellData[index]" />
+        </datalist>
+        <br>
+        <label class="clabel">Amount:</label>
+        <input list="niExp" id="amount" size="5" value="1" />
+        <button type="button" class="cbutton" style="margin-left: 305px;" onclick='createImageData("originalCanvas",  $("#formula").val(), $("#amount").val());'>Start</button>
+    </div>
+
+    <canvas id="originalCanvas"></canvas>
+</body>
+
+</html>

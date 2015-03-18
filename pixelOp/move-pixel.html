@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generativ - img eater</title>
+
+    <script type="text/javascript" src="../utils.js"></script>
+    <script type="text/javascript" src="move-pixel.js"></script>
+    <script src="../../jquery-2.1.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../apps-style.css">
+
+</head>
+
+<body>
+    <div id="#input-zone" class="pattern01">
+        <label class="clabel">Select Image:</label>
+        <input id="fileUrl" class="cinput" type="text" name="fileUrl" size="70" value="monalisa.jpg">
+        <button id="openButton" class="cbutton" onclick="loadCanvas($('#fileUrl').val());">Open</button>
+        <br>
+        <label class="clabel">nx Eq:</label>
+        <input list="nxEqs" id="nxExp" value="" size="100" />
+        <datalist id="nxEqs">
+            <option value="Math.round(Math.sin(6.283 * 0.2 * x / width) / Math.cos(6.283 * 0.2 * y / height) * width)"/>
+            <option value="Math.round(Math.sin(6.283 * 0.2 * x / width) * width)" />
+        </datalist>
+        <br>
+        <label class="clabel">ny Eq:</label>
+        <input list="nyEqs" id="nyExp" value="" size="100" />
+        <datalist id="nyEqs">
+            <option value="Math.round(Math.sin(6.283 * 0.2 * y / height)  * height)"/>
+        </datalist>
+        <br>
+        <label class="clabel">new Index:</label>
+        <input list="niExp" id="newIndexExp" value="" size="100" />
+        <datalist id="niExp">
+            <option value="(nx + (height - ny) * width)"/>
+            <option value="(nx + ny * width)"/>
+        </datalist>
+        <br>
+        <label class="clabel">Amount:</label>
+        <input list="niExp" id="amount" size="5" value="1"/>
+        <button type="button" class="cbutton" style="margin-left: 15px;" onclick='createImageData("originalCanvas", $("#nxExp").val(),$("#nyExp").val(),$("#newIndexExp").val(),$("#amount").val());'>Start</button>
+    </div>
+
+    <canvas id="originalCanvas"></canvas>
+</body>
+
+</html>

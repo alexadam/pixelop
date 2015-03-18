@@ -1,0 +1,40 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generativ - img eater</title>
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="pixel2poly.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/apps-style.css">
+
+</head>
+
+<body>
+    <div id="#input-zone" class="pattern01">
+        <label class="clabel">Select Image:</label>
+        <input id="fileUrl" class="cinput" type="text" name="fileUrl" size="70" value="monalisa.jpg">
+        <button id="openButton" class="cbutton" onclick="loadCanvas($('#fileUrl').val());">Open</button>
+        <br>
+        <label class="clabel">Polygon type:</label>
+        <select id="polyType" class="cinput">
+            <option value="r0">rectangle</option>
+            <option value="r1">triangle</option>
+            <option value="r2">verical lines</option>
+            <option value="r3">random 1</option>
+            <option value="r4">random 2</option>
+        </select>
+        <br>
+        <label class="clabel">Amount:</label>
+        <input list="niExp" id="amount" size="5" value="1" />
+        <button type="button" class="cbutton" style="margin-left: 305px;" onclick='createImageData("originalCanvas", $("#polyType").val(),$("#amount").val());'>Start</button>
+    </div>
+
+    <canvas id="originalCanvas"></canvas>
+</body>
+
+</html>
